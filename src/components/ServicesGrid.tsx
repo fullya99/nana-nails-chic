@@ -1,40 +1,41 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Palette, Scissors, Sparkles, Heart, Clock, Euro } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ServicesGrid = () => {
   const services = [
     {
       icon: Palette,
-      title: "Manucure Classique",
-      description: "Soin complet des ongles avec pose de vernis traditionnel",
-      duration: "45 min",
-      price: "25€",
-      features: ["Limage", "Cuticules", "Massage des mains", "Vernis au choix"]
+      title: "Pose Capsule / Popit",
+      description: "Manucure russe + extension avec la technique au choix (réalisée avec du gel).",
+      duration: "2h",
+      price: "45€",
+      features: ["Manucure russe", "Extension gel", "Technique au choix", "Finition brillante"]
     },
     {
       icon: Sparkles,
-      title: "Manucure Semi-Permanent",
-      description: "Vernis longue tenue jusqu'à 3 semaines, fini brillant",
-      duration: "1h15",
+      title: "Remplissage",
+      description: "Manucure russe + remplissage après 4 semaines maximum.",
+      duration: "1h30",
       price: "35€",
-      features: ["Préparation ongles", "Base coat", "Couleur", "Top coat UV"]
+      features: ["Manucure russe", "Remplissage", "Retouche forme", "Semi-permanent"]
     },
     {
       icon: Heart,
-      title: "Nail Art Personnalisé",
-      description: "Créations artistiques uniques selon vos envies",
-      duration: "1h30",
-      price: "45€",
-      features: ["Design sur mesure", "Strass et paillettes", "Motifs tendance", "Photos souvenir"]
+      title: "Gainage Ongle Naturel",
+      description: "Renforcement de l'ongle naturel avec du gel (sans rallongement).",
+      duration: "1h15",
+      price: "35€",
+      features: ["Renforcement gel", "Sans rallongement", "Base protectrice", "Finition naturelle"]
     },
     {
       icon: Scissors,
-      title: "Pédicure Complète",
-      description: "Soin relaxant des pieds avec manucure des ongles",
-      duration: "1h",
-      price: "40€",
-      features: ["Bain relaxant", "Gommage", "Massage", "Vernis classique"]
+      title: "Pédicure Russe + Renfort",
+      description: "Bain de pieds + gommage + retrait cuticules + renfort + semi-permanent.",
+      duration: "1h30",
+      price: "30€",
+      features: ["Bain relaxant", "Gommage", "Retrait cuticules", "Semi-permanent"]
     }
   ];
 
@@ -103,9 +104,11 @@ const ServicesGrid = () => {
                   </div>
 
                   {/* CTA */}
-                  <Button className="btn-secondary w-full group-hover:shadow-glow transition-all duration-300">
-                    Réserver cette prestation
-                  </Button>
+                  <Link to="/reservation">
+                    <Button className="btn-secondary w-full group-hover:shadow-glow transition-all duration-300">
+                      Réserver cette prestation
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             );
@@ -121,9 +124,11 @@ const ServicesGrid = () => {
             Vous avez une idée spéciale ? Nous créons des designs personnalisés selon vos envies. 
             Contactez-nous pour discuter de votre projet unique !
           </p>
-          <Button className="btn-outline">
-            Demander un devis personnalisé
-          </Button>
+          <Link to="/prestations">
+            <Button className="btn-outline">
+              Voir toutes nos prestations
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

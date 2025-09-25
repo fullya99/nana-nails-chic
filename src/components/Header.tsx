@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const location = useLocation();
+  
   const navItems = [
-    { name: "Accueil", href: "#accueil" },
-    { name: "Prestations", href: "#prestations" },
-    { name: "Galerie", href: "#galerie" },
-    { name: "À Propos", href: "#apropos" },
-    { name: "Contact", href: "#contact" },
+    { name: "Accueil", href: "/" },
+    { name: "Prestations", href: "/prestations" },
+    { name: "Galerie", href: "/galerie" },
+    { name: "À Propos", href: "/a-propos" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -19,33 +22,45 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-playfair font-bold text-gradient">
-              Les Ongles de Nana
-            </h1>
+            <Link to="/">
+              <h1 className="text-2xl font-playfair font-bold text-gradient hover:scale-105 transition-transform duration-300">
+                Les Ongles de Nana
+              </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="text-gray-dark hover:text-pink-accent px-3 py-2 text-sm font-medium transition-colors duration-300 relative group"
+                  to={item.href}
+                  className={`px-3 py-2 text-sm font-medium transition-colors duration-300 relative group ${
+                    location.pathname === item.href
+                      ? "text-pink-accent"
+                      : "text-gray-dark hover:text-pink-accent"
+                  }`}
                 >
                   {item.name}
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-pink-secondary to-turquoise transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                </a>
+                  <span className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-pink-secondary to-turquoise transform transition-transform duration-300 origin-left ${
+                    location.pathname === item.href
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}></span>
+                </Link>
               ))}
             </div>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="btn-primary">
-              <Phone className="w-4 h-4 mr-2" />
-              Réserver
-            </Button>
+            <Link to="/reservation">
+              <Button className="btn-primary">
+                <Phone className="w-4 h-4 mr-2" />
+                Réserver
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -69,20 +84,26 @@ const Header = () => {
           <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-pink-primary/20">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="text-gray-dark hover:text-pink-accent block px-3 py-2 text-base font-medium transition-colors duration-300"
+                  to={item.href}
+                  className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
+                    location.pathname === item.href
+                      ? "text-pink-accent"
+                      : "text-gray-dark hover:text-pink-accent"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <div className="mt-4 px-3">
-                <Button className="btn-primary w-full">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Réserver
-                </Button>
+                <Link to="/reservation">
+                  <Button className="btn-primary w-full">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Réserver
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

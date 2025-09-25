@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Award, Clock, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import anaisPortrait from "@/assets/anais-portrait.jpg";
 
 const AboutSection = () => {
@@ -36,12 +37,14 @@ const AboutSection = () => {
           {/* Left Column - Image and Intro */}
           <div className="space-y-8 animate-slide-in">
             <div className="relative">
-              <img
-                src={anaisPortrait}
-                alt="Anaïs - Les Ongles de Nana"
-                className="w-full max-w-md mx-auto rounded-2xl shadow-elegant"
-              />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-pink-primary to-turquoise rounded-full flex items-center justify-center shadow-glow">
+              <div className="w-80 h-80 mx-auto rounded-full overflow-hidden shadow-elegant">
+                <img
+                  src={anaisPortrait}
+                  alt="Anaïs - Les Ongles de Nana"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-8 w-24 h-24 bg-gradient-to-br from-pink-primary to-turquoise rounded-full flex items-center justify-center shadow-glow">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
             </div>
@@ -128,9 +131,11 @@ const AboutSection = () => {
               <p className="text-gray-medium text-sm mb-4">
                 Prenez rendez-vous et découvrez l'expérience unique des Ongles de Nana.
               </p>
-              <Button className="btn-primary">
-                Réserver maintenant
-              </Button>
+              <Link to="/reservation">
+                <Button className="btn-primary">
+                  Réserver maintenant
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
