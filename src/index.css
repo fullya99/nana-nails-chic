@@ -2,41 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Les Ongles de Nana - Design System
+Palette sophistiquée rose pastel pour salon de manucure haut de gamme
 All colors MUST be HSL.
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @layer base {
   :root {
+    /* Base colors - Nana Nails palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 0 0% 18%;
+    
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 0 0% 18%;
+    
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 0 0% 18%;
+    
+    /* Primary - Rose pastel principal */
+    --primary: 320 61% 85%;
+    --primary-foreground: 0 0% 18%;
+    
+    /* Secondary - Rose foncé */
+    --secondary: 320 43% 78%;
+    --secondary-foreground: 0 0% 18%;
+    
+    /* Muted tones */
+    --muted: 320 20% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Accent - Turquoise */
+    --accent: 180 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs */
+    --border: 320 30% 92%;
+    --input: 320 30% 94%;
+    --ring: 320 61% 85%;
+    
+    --radius: 0.75rem;
+    
+    /* Nana Nails custom colors */
+    --pink-primary: 320 61% 85%;
+    --pink-secondary: 320 43% 78%; 
+    --pink-accent: 320 30% 70%;
+    --turquoise: 180 80% 60%;
+    --turquoise-light: 180 60% 80%;
+    --gray-dark: 0 0% 18%;
+    --gray-medium: 0 0% 45%;
+    --gray-light: 0 0% 96%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--pink-primary)), hsl(var(--pink-secondary)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--turquoise)), hsl(var(--turquoise-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--pink-primary) / 0.95), hsl(var(--pink-secondary) / 0.9));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--pink-secondary) / 0.3);
+    --shadow-card: 0 4px 20px hsl(var(--pink-primary) / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--turquoise) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +92,44 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode avec nuances roses pour Nana Nails */
+    --background: 0 0% 8%;
+    --foreground: 320 20% 95%;
+    
+    --card: 0 0% 12%;
+    --card-foreground: 320 20% 95%;
+    
+    --popover: 0 0% 12%;
+    --popover-foreground: 320 20% 95%;
+    
+    --primary: 320 50% 70%;
+    --primary-foreground: 0 0% 8%;
+    
+    --secondary: 320 30% 25%;
+    --secondary-foreground: 320 20% 95%;
+    
+    --muted: 320 15% 20%;
+    --muted-foreground: 320 10% 65%;
+    
+    --accent: 180 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 320 20% 20%;
+    --input: 320 20% 18%;
+    --ring: 320 50% 70%;
+    
+    /* Dark mode custom colors */
+    --pink-primary: 320 50% 70%;
+    --pink-secondary: 320 40% 60%;
+    --pink-accent: 320 30% 50%;
+    --turquoise: 180 70% 50%;
+    --turquoise-light: 180 60% 60%;
+    --gray-dark: 0 0% 95%;
+    --gray-medium: 320 10% 65%;
+    --gray-light: 0 0% 12%;
   }
 }
 
@@ -100,6 +139,44 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-['Inter'] antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Playfair_Display'];
+  }
+}
+
+@layer components {
+  /* Nana Nails - Component styles */
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-pink-primary to-pink-secondary text-gray-dark font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-turquoise text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-pink-secondary text-pink-accent font-medium rounded-full hover:bg-pink-secondary hover:text-gray-dark transition-all duration-300;
+  }
+  
+  .card-elegant {
+    @apply bg-card rounded-2xl transition-all duration-300 hover:scale-[1.02];
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-elegant:hover {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-pink-secondary to-pink-accent bg-clip-text text-transparent;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
   }
 }
